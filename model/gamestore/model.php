@@ -78,7 +78,7 @@ class model {
     
     function insert($table, $value){
         require "koneksi.php";
-        $data = mysqli_query($connect, "INSERT INTO $table values ($value)");
+        mysqli_query($connect, "INSERT INTO $table values ($value)");
     }
     
     function updateWhere($table, $set, $where){
