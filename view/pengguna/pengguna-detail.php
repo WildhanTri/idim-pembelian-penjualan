@@ -1,14 +1,18 @@
 <?php
-require_once "controller/gamestore/gamestorecontroller.php";
-$gs = new gamestore();
-$gs->callasset();
+require_once "controller/pengguna_controller.php";
+require_once "controller/hak_akses_controller.php";
+
+$penggunaController = new PenggunaController();
+$penggunaController->callasset();
 
 $penggunaDetail = null;
 if (isset($_GET['id'])) {
-    $penggunaDetail = $gs->pengguna_detail($_GET['id']);
+    $penggunaDetail = $penggunaController->pengguna_detail($_GET['id']);
 }
 
-$hakAksesList = $gs->hak_akses_list();
+
+$hakAksesController = new HakAksesController();
+$hakAksesList = $hakAksesController->hak_akses_list();
 ?>
 <html>
 

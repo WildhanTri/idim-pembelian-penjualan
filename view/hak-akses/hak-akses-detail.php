@@ -1,11 +1,11 @@
 <?php
-require_once "controller/gamestore/gamestorecontroller.php";
-$gs = new gamestore();
-$gs->callasset();
+require_once "controller/hak_akses_controller.php";
+$hakAksesController = new HakAksesController();
+$hakAksesController->callasset();
 
 $hakAksesDetail = null;
 if (isset($_GET['id'])) {
-  $hakAksesDetail = $gs->hak_akses_detail($_GET['id']);
+  $hakAksesDetail = $hakAksesController->hak_akses_detail($_GET['id']);
 }
 ?>
 <html>

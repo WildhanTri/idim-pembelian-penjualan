@@ -1,8 +1,8 @@
 <?php
-    require_once "controller/gamestore/gamestorecontroller.php";
-    $gs = new gamestore();
-    $gs->callasset();
-    $hak_akses_list = $gs->hak_akses_list();
+    require_once "controller/hak_akses_controller.php";
+    $hakAksesController = new HakAksesController();
+    $hakAksesController->callasset();
+    $hak_akses_list = $hakAksesController->hak_akses_list();
 ?>
 <html>
 <head>

@@ -1,7 +1,7 @@
 <?php
-    require_once "controller/gamestore/gamestorecontroller.php";
-    $gs = new gamestore();
-    $gs->callasset();
+    require_once "controller/base_controller.php";
+    $baseController = new BaseController();
+    $baseController->callasset();
     /*
     if(isset($_SESSION['user'])){
         header("../admin-home/home.php");
@@ -43,13 +43,13 @@
             position: relative;
         }
         
-        .body-input input { 
+        /* .body-input input { 
             border:none: background:#fff;
             display:block;
             width: 100%;
             box-sizing: border-box;
             padding-left:30px;
-        }
+        } */
         .body-input img {
             padding: 4px;
             padding-left: 5px;

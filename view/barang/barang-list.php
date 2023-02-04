@@ -1,8 +1,8 @@
 <?php
-    require_once "controller/gamestore/gamestorecontroller.php";
-    $gs = new gamestore();
-    $gs->callasset();
-    $barang_list = $gs->barang_list();
+    require_once "controller/barang_controller.php";
+    $barangController = new BarangController();
+    $barangController->callasset();
+    $barang_list = $barangController->barang_list();
 ?>
 <html>
 <head>

@@ -1,8 +1,8 @@
 <?php
-require_once "controller/gamestore/gamestorecontroller.php";
-$gs = new gamestore();
-$gs->callasset();
-define('BASE_URL', 'http://localhost/gamestore');
+require_once "controller/base_controller.php";
+$baseController = new BaseController();
+$baseController->callasset();
+define('BASE_URL', 'http://localhost/tp4idim');
 ?>
 <html>
 

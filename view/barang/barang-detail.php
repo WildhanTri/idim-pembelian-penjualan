@@ -1,11 +1,11 @@
 <?php
-require_once "controller/gamestore/gamestorecontroller.php";
-$gs = new gamestore();
-$gs->callasset();
+require_once "controller/barang_controller.php";
+$barangController = new BarangController();
+$barangController->callasset();
 
 $barangDetail = null;
 if (isset($_GET['id'])) {
-  $barangDetail = $gs->barang_detail($_GET['id']);
+  $barangDetail = $barangController->barang_detail($_GET['id']);
 }
 ?>
 <html>
