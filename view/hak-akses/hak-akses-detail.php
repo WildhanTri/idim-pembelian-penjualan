@@ -25,24 +25,24 @@ if (isset($_GET['id'])) {
       <tr>
         <td>Nama Hak Akses</td>
         <td>:</td>
-        <td><input type="text" class="input" name="nama_akses" value="<?php echo $hakAksesDetail != null ? $hakAksesDetail[0]['nama_akses'] : '' ?>" autocomplete="off" /></td>
+        <td><input type="text" class="form-control" name="nama_akses" value="<?php echo $hakAksesDetail != null ? $hakAksesDetail[0]['nama_akses'] : '' ?>" autocomplete="off" /></td>
       </tr>
       <tr>
         <td style="vertical-align:top;">Keterangan</td>
         <td style="vertical-align:top;">:</td>
         <td>
-          <textarea class="input" name="keterangan" autocomplete="off"><?php echo $hakAksesDetail != null ? $hakAksesDetail[0]['keterangan'] : '' ?></textarea>
+          <textarea class="form-control" name="keterangan" autocomplete="off"><?php echo $hakAksesDetail != null ? $hakAksesDetail[0]['keterangan'] : '' ?></textarea>
         </td>
       </tr>
       <tr>
         <td colspan="3" style="text-align:right">
           <?php if ($hakAksesDetail) : ?>
-            <input type="submit" name="hak-akses-edit-submit" class="btn btn-green" style="width:100px;" value="Edit">
+            <input type="submit" name="hak-akses-edit-submit" class="btn btn-success" style="width:100px;" value="Edit">
           <?php endif ?>
           <?php if ($hakAksesDetail == null) : ?>
-            <input type="submit" name="hak-akses-add-submit" class="btn btn-green" style="width:100px;" value="Add">
+            <input type="submit" name="hak-akses-add-submit" class="btn btn-success" style="width:100px;" value="Add">
           <?php endif ?>
-          <input type="button" class="btn btn-red" style="width:100px;" value="cancel">
+          <a href="?page=hak-akses&&subpage=hak-akses-list"><input type="button" class="btn btn-danger" style="width:100px;" value="Cancel"></a>
         </td>
       </tr>
     </table>

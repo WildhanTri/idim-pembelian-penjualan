@@ -57,7 +57,7 @@
         <div class="container-full" id="daftarproduk">
             <h1>List Pengguna</h1>
             <input type="hidden" id="totalcheck" value="0"/>
-            <table class="table table-lite" style="margin-top:10px">
+            <table class="table table-bordered" style="margin-top:10px">
                 <?php if($pengguna_list != null) : ?>
                 <thead>
                     <td></td>
@@ -67,7 +67,6 @@
                     <td>Nama Belakang</td>
                     <td>No HP</td>
                     <td>Alamat</td>
-                    <td></td>
                     <td></td>
                 </thead>
                 
@@ -81,11 +80,11 @@
                     <td><?php echo $pengguna['no_hp'] ?></td>
                     <td><?php echo $pengguna['alamat'] ?></td>
                     <td>
-                        <div class="clm-6 np-y" style="padding-right:0px;">
-                            <a href="submit.php?pengguna-edit=<?php echo $pengguna['id_pengguna'] ?>"><button class="btn btn-orange">Edit</button></a>
+                        <div class="clm-6 np-y">
+                            <a href="submit.php?pengguna-edit=<?php echo $pengguna['id_pengguna'] ?>"><button class="btn btn-warning">Edit</button></a>
                         </div>
                         <div class="clm-6 np-y">
-                            <a href="submit.php?pengguna-delete=<?php echo $pengguna['id_pengguna'] ?>"><button class="btn btn-red">Hapus</button></a>
+                            <a href="submit.php?pengguna-delete=<?php echo $pengguna['id_pengguna'] ?>"><button class="btn btn-danger">Hapus</button></a>
                         </div>
                     </td>
                 </tr>

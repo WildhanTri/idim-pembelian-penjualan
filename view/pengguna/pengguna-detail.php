@@ -77,12 +77,12 @@ $hakAksesList = $hakAksesController->hak_akses_list();
             <tr>
                 <td colspan="3" style="text-align:right">
                     <?php if ($penggunaDetail) : ?>
-                        <input type="submit" name="pengguna-edit-submit" class="btn btn-green" style="width:100px;" value="Edit">
+                        <input type="submit" name="pengguna-edit-submit" class="btn btn-success" style="width:100px;" value="Edit">
                     <?php endif ?>
                     <?php if ($penggunaDetail == null) : ?>
-                        <input type="submit" name="pengguna-add-submit" class="btn btn-green" style="width:100px;" value="Add">
+                        <input type="submit" name="pengguna-add-submit" class="btn btn-success" style="width:100px;" value="Add">
                     <?php endif ?>
-                    <input type="button" class="btn btn-red" style="width:100px;" value="cancel">
+                    <a href="?page=pengguna&&subpage=pengguna-list"><input type="button" class="btn btn-danger" style="width:100px;" value="Cancel"></a>
                 </td>
             </tr>
         </table>

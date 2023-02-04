@@ -42,12 +42,12 @@ if (isset($_GET['id'])) {
       <tr>
         <td colspan="3" style="text-align:right">
           <?php if ($barangDetail) : ?>
-            <input type="submit" name="barang-edit-submit" class="btn btn-green" style="width:100px;" value="Edit">
+            <input type="submit" name="barang-edit-submit" class="btn btn-success" style="width:100px;" value="Edit">
           <?php endif ?>
           <?php if ($barangDetail == null) : ?>
-            <input type="submit" name="barang-add-submit" class="btn btn-green" style="width:100px;" value="Add">
+            <input type="submit" name="barang-add-submit" class="btn btn-success" style="width:100px;" value="Add">
           <?php endif ?>
-          <input type="button" class="btn btn-red" style="width:100px;" value="cancel">
+          <a href="?page=barang&&subpage=barang-list"><input type="button" class="btn btn-danger" style="width:100px;" value="Cancel"></a>
         </td>
       </tr>
     </table>
