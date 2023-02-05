@@ -11,6 +11,7 @@ require 'class/barang.php';
 require 'class/hak_akses.php';
 require 'class/pengguna.php';
 require 'class/penjualan.php';
+require 'class/pembelian.php';
 
 // HAK AKSES
 if(isset($_POST['hak-akses-add-submit'])){
@@ -147,13 +148,13 @@ if(isset($_GET['barang-delete'])){
 // PEMBELIAN
 if(isset($_POST['pembelian-add-submit'])){
     $pembelianController = new PembelianController;
-    $data = array(
-            'jumlah_pembelian' => $_POST['jumlah_pembelian'],
-            'harga_beli' => $_POST['harga_beli'],
-            'id_barang' => $_POST['id_barang'],
-            'id_supplier' => $_POST['id_supplier']
-    );
     
+    $data = new Pembelian();
+    $data->set_jumlah_pembelian($_POST['jumlah_pembelian']);
+    $data->set_harga_beli($_POST['harga_beli']);
+    $data->set_id_barang($_POST['id_barang']);
+    $data->set_id_supplier($_POST['id_supplier']);
+
     $pembelianController->pembelian_add_submit($data);
     
     echo "<script>alert('Tambah Pembelian Berhasil'); location.href='admin.php?page=pembelian&&subpage=pembelian-list'</script>";
@@ -166,13 +167,13 @@ if(isset($_GET['pembelian-edit'])){
 
 if(isset($_POST['pembelian-edit-submit'])){
     $pembelianController = new PembelianController;
-    $data = array(
-        'id_pembelian' => $_POST['id_pembelian'],
-        'jumlah_pembelian' => $_POST['jumlah_pembelian'],
-        'harga_beli' => $_POST['harga_beli'],
-        'id_barang' => $_POST['id_barang'],
-        'id_supplier' => $_POST['id_supplier']
-    );
+
+    $data = new Pembelian();
+    $data->set_id_pembelian($_POST['idset_id_pembelian']);
+    $data->set_jumlah_pembelian($_POST['jumlah_pembelian']);
+    $data->set_harga_beli($_POST['harga_beli']);
+    $data->set_id_barang($_POST['id_barang']);
+    $data->set_id_supplier($_POST['id_supplier']);
     
     $pembelianController->pembelian_edit($data);
     
