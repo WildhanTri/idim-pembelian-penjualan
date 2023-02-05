@@ -46,9 +46,9 @@ class CustomerController {
         
         $model = new model;
         
-        $nama_customer = $data['nama_customer'];
-        $alamat_customer = $data['alamat_customer'];
-        $no_hp_customer = $data['no_hp_customer'];
+        $nama_customer = $data->get_nama_customer();
+        $alamat_customer = $data->get_alamat_customer();
+        $no_hp_customer = $data->get_no_hp_customer();
         
         $model->insert("customer", "null, '$nama_customer', '$alamat_customer', '$no_hp_customer'");
     }
@@ -58,10 +58,10 @@ class CustomerController {
         
         $model = new model;
 
-        $id_customer = $data['id_customer'];
-        $nama_customer = $data['nama_customer'];
-        $alamat_customer = $data['alamat_customer'];
-        $no_hp_customer = $data['no_hp_customer'];
+        $id_customer = $data->get_id_customer();
+        $nama_customer = $data->get_nama_customer();
+        $alamat_customer = $data->get_alamat_customer();
+        $no_hp_customer = $data->get_no_hp_customer();
         
         $model->updateWhere("customer", "nama_customer = '$nama_customer', alamat_customer = '$alamat_customer', no_hp_customer = '$no_hp_customer'", "id_customer = '$id_customer'");
     }

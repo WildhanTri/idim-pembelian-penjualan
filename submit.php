@@ -13,6 +13,7 @@ require 'class/pengguna.php';
 require 'class/penjualan.php';
 require 'class/pembelian.php';
 require 'class/supplier.php';
+require 'class/customer.php';
 
 // HAK AKSES
 if(isset($_POST['hak-akses-add-submit'])){
@@ -281,11 +282,11 @@ if(isset($_GET['supplier-delete'])){
 // CUSTOMER
 if (isset($_POST['customer-add-submit'])) {
     $customerController = new customerController;
-    $data = array(
-        'nama_customer' => $_POST['nama_customer'],
-        'no_hp_customer' => $_POST['no_hp_customer'],
-        'alamat_customer' => $_POST['alamat_customer']
-    );
+
+    $data = new Customer();
+    $data->set_nama_customer($_POST['nama_customer']);
+    $data->set_no_hp_customer($_POST['no_hp_customer']);
+    $data->set_alamat_customer($_POST['alamat_customer']);
 
     $customerController->customer_add_submit($data);
 
@@ -299,13 +300,13 @@ if(isset($_GET['customer-edit'])){
 
 if(isset($_POST['customer-edit-submit'])){
     $customerController = new CustomerController;
-    $data = array(
-        'id_customer' => $_POST['id_customer'],
-        'nama_customer' => $_POST['nama_customer'],
-        'no_hp_customer' => $_POST['no_hp_customer'],
-        'alamat_customer' => $_POST['alamat_customer']
-    );
-    
+
+    $data = new Customer();
+    $data->set_id_customer($_POST['id_customer']);
+    $data->set_nama_customer($_POST['nama_customer']);
+    $data->set_no_hp_customer($_POST['no_hp_customer']);
+    $data->set_alamat_customer($_POST['alamat_customer']);
+
     $customerController->customer_edit_submit($data);
     
     echo "<script>alert('Edit Customer Berhasil');  location.href='admin.php?page=customer&&subpage=customer-list'</script>";
