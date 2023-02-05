@@ -10,8 +10,8 @@
                             <a href="?page=barang&subpage=barang-list"><li>Barang</li></a>
                             <a href="?page=penjualan&subpage=penjualan-list"><li>Penjualan</li></a>
                             <a href="?page=pembelian&subpage=pembelian-list"><li>Pembelian</li></a>
-                            
-                            <a href="submit.php?logoutadmin"><li>Log Out</li></a>
+                            <a href="?page=supplier&subpage=supplier-list"><li>Supplier</li></a>
+                            <a href="?page=pelanggan&subpage=pelanggan-list"><li>Pelanggan</li></a>
                         </ul>
                     </nav>
                 </div>

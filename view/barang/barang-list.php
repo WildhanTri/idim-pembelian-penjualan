@@ -63,7 +63,7 @@ $barang_list = $barangController->barang_list();
   <div class="container-full" id="daftarproduk">
     <h1>List Barang</h1>
     <input type="hidden" id="totalcheck" value="0" />
-    <table class="table table-lite" style="margin-top:10px">
+    <table class="table table-bordered" style="margin-top:10px">
       <?php if ($barang_list != null) : ?>
         <thead>
           <td></td>
@@ -71,7 +71,6 @@ $barang_list = $barangController->barang_list();
           <td>Nama Barang</td>
           <td>Keterangan</td>
           <td>Satuan</td>
-          <td></td>
           <td></td>
         </thead>
 
@@ -84,7 +83,7 @@ $barang_list = $barangController->barang_list();
             <td style="width:200px"><?php echo $barang['nama_barang'] ?></td>
             <td><?php echo $barang['keterangan'] ?></td>
             <td><?php echo $barang['satuan'] ?></td>
-            <td>
+            <td class="text-center">
               <a href="submit.php?barang-edit=<?php echo $barang['id_barang'] ?>"><button class="btn btn-warning">Edit</button></a>
               <a href="submit.php?barang-delete=<?php echo $barang['id_barang'] ?>"><button class="btn btn-danger">Hapus</button></a>
             </td>

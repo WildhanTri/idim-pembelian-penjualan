@@ -1,8 +1,8 @@
 <?php
-require_once "controller/pengguna_controller.php";
-$penggunaController = new PenggunaController();
-$penggunaController->callasset();
-$pengguna_list = $penggunaController->pengguna_list();
+require_once "controller/pelanggan_controller.php";
+$pelangganController = new PelangganController();
+$pelangganController->callasset();
+$pelanggan_list = $pelangganController->pelanggan_list();
 ?>
 <html>
 
@@ -61,35 +61,31 @@ $pengguna_list = $penggunaController->pengguna_list();
 </style>
 <div class="clm-12 np">
   <div class="container-full" id="daftarproduk">
-    <h1>List Pengguna</h1>
+    <h1>List Pelanggan</h1>
     <input type="hidden" id="totalcheck" value="0" />
     <table class="table table-bordered" style="margin-top:10px">
-      <?php if ($pengguna_list != null) : ?>
+      <?php if ($pelanggan_list != null) : ?>
         <thead>
           <td></td>
           <td>No</td>
-          <td>Nama Pengguna</td>
-          <td>Nama Depan</td>
-          <td>Nama Belakang</td>
+          <td>Nama Pelanggan</td>
           <td>No HP</td>
           <td>Alamat</td>
           <td></td>
         </thead>
 
         <?php $no = 1;
-        foreach ($pengguna_list as  $pengguna) : ?>
+        foreach ($pelanggan_list as  $pelanggan) : ?>
           <tr>
-            <td><input type="checkbox" value="<?php echo $pengguna['id_pengguna'] ?>" name="pengguna[]" onclick="checkboxes()"></td>
+            <td><input type="checkbox" value="<?php echo $pelanggan['id_pelanggan'] ?>" name="pelanggan[]" onclick="checkboxes()"></td>
             <td><?php echo $no;
                 $no++ ?></td>
-            <td style="width:200px"><?php echo $pengguna['nama_pengguna'] ?></td>
-            <td><?php echo $pengguna['nama_depan'] ?></td>
-            <td><?php echo $pengguna['nama_belakang'] ?></td>
-            <td><?php echo $pengguna['no_hp'] ?></td>
-            <td><?php echo $pengguna['alamat'] ?></td>
+            <td style="width:200px"><?php echo $pelanggan['nama_pelanggan'] ?></td>
+            <td><?php echo $pelanggan['no_hp_pelanggan'] ?></td>
+            <td><?php echo $pelanggan['alamat_pelanggan'] ?></td>
             <td class="text-center">
-              <a href="submit.php?pengguna-edit=<?php echo $pengguna['id_pengguna'] ?>"><button class="btn btn-warning">Edit</button></a>
-              <a href="submit.php?pengguna-delete=<?php echo $pengguna['id_pengguna'] ?>"><button class="btn btn-danger">Hapus</button></a>
+              <a href="submit.php?pelanggan-edit=<?php echo $pelanggan['id_pelanggan'] ?>"><button class="btn btn-warning">Edit</button></a>
+              <a href="submit.php?pelanggan-delete=<?php echo $pelanggan['id_pelanggan'] ?>"><button class="btn btn-danger">Hapus</button></a>
             </td>
           </tr>
         <?php endforeach ?>
@@ -105,7 +101,7 @@ $pengguna_list = $penggunaController->pengguna_list();
   <a id="deletemultiple">
     <img src="assets/img/remove.png" id="icondeletemultiple" class="flyitem" style="width:65px; height:65px; filter:grayscale(100%); cursor:not-allowed">
   </a>
-  <a href="?page=pengguna&&subpage=pengguna-detail">
+  <a href="?page=pelanggan&&subpage=pelanggan-detail">
     <img src="assets/img/add_blue.png" class="flyitem" style="width:65px; height:65px;">
   </a>
 </div>

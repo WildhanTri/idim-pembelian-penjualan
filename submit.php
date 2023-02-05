@@ -2,6 +2,10 @@
 require "controller/hak_akses_controller.php";
 require "controller/pengguna_controller.php";
 require "controller/barang_controller.php";
+require "controller/pembelian_controller.php";
+require "controller/penjualan_controller.php";
+require "controller/supplier_controller.php";
+require "controller/pelanggan_controller.php";
 
 // HAK AKSES
 if(isset($_POST['hak-akses-add-submit'])){
@@ -104,12 +108,12 @@ if(isset($_POST['barang-add-submit'])){
     
     $barangController->barang_add_submit($data);
     
-    echo "<script>alert('Tambah Barang Berhasil'); location.href='admin.php?page=barang&&subpage=barang-list'</script>";
+    echo "<script>alert('Tambah Barang Berhasil'); location.href='admin.php?page=pembelian&&subpage=pembelian-list'</script>";
 }
 
 if(isset($_GET['barang-edit'])){
     $id = $_GET['barang-edit'];
-    echo "<script> location.href='admin.php?page=barang&subpage=barang-detail&id=".$id."'</script>";
+    echo "<script> location.href='admin.php?page=pembelian&subpage=pembelian-detail&id=".$id."'</script>";
 }
 
 if(isset($_POST['barang-edit-submit'])){
@@ -123,7 +127,7 @@ if(isset($_POST['barang-edit-submit'])){
     
     $barangController->barang_edit_submit($data);
     
-    echo "<script>alert('Edit Barang Berhasil');  location.href='admin.php?page=barang&&subpage=barang-list'</script>";
+    echo "<script>alert('Edit Barang Berhasil');  location.href='admin.php?page=pembelian&&subpage=pembelian-list'</script>";
 }
 
 if(isset($_GET['barang-delete'])){
@@ -132,7 +136,179 @@ if(isset($_GET['barang-delete'])){
     );
     $barangController = new BarangController;
     $barangController->barang_delete_submit($data);
-    echo "<script>alert('Delete Barang Berhasil');  location.href='admin.php?page=barang&&subpage=barang-list'</script>";
+    echo "<script>alert('Delete Barang Berhasil');  location.href='admin.php?page=pembelian&&subpage=pembelian-list'</script>";
 }
 
-?>
+// PEMBELIAN
+if(isset($_POST['pembelian-add-submit'])){
+    $pembelianController = new PembelianController;
+    $data = array(
+            'jumlah_pembelian' => $_POST['jumlah_pembelian'],
+            'harga_beli' => $_POST['harga_beli'],
+            'id_barang' => $_POST['id_barang'],
+            'id_supplier' => $_POST['id_supplier']
+    );
+    
+    $pembelianController->pembelian_add_submit($data);
+    
+    echo "<script>alert('Tambah Pembelian Berhasil'); location.href='admin.php?page=pembelian&&subpage=pembelian-list'</script>";
+}
+
+if(isset($_GET['pembelian-edit'])){
+    $id = $_GET['pembelian-edit'];
+    echo "<script> location.href='admin.php?page=pembelian&subpage=pembelian-detail&id=".$id."'</script>";
+}
+
+if(isset($_POST['pembelian-edit-submit'])){
+    $pembelianController = new PembelianController;
+    $data = array(
+        'id_pembelian' => $_POST['id_pembelian'],
+        'jumlah_pembelian' => $_POST['jumlah_pembelian'],
+        'harga_beli' => $_POST['harga_beli'],
+        'id_barang' => $_POST['id_barang'],
+        'id_supplier' => $_POST['id_supplier']
+    );
+    
+    $pembelianController->pembelian_edit($data);
+    
+    echo "<script>alert('Edit Pembelian Berhasil');  location.href='admin.php?page=pembelian&&subpage=pembelian-list'</script>";
+}
+
+if(isset($_GET['pembelian-delete'])){
+    $data = array(
+        'id_pembelian' => $_GET['pembelian-delete']
+    );
+    $pembelianController = new PembelianController;
+    $pembelianController->pembelian_delete_submit($data);
+    echo "<script>alert('Delete Pembelian Berhasil');  location.href='admin.php?page=pembelian&&subpage=pembelian-list'</script>";
+}
+
+// PENJUALAN
+if(isset($_POST['penjualan-add-submit'])){
+    $penjualanController = new PenjualanController;
+    $data = array(
+            'jumlah_penjualan' => $_POST['jumlah_penjualan'],
+            'harga_jual' => $_POST['harga_jual'],
+            'id_barang' => $_POST['id_barang'],
+            'id_pelanggan' => $_POST['id_pelanggan']
+    );
+    
+    $penjualanController->penjualan_add_submit($data);
+    
+    echo "<script>alert('Tambah Penjualan Berhasil'); location.href='admin.php?page=penjualan&&subpage=penjualan-list'</script>";
+}
+
+if(isset($_GET['penjualan-edit'])){
+    $id = $_GET['penjualan-edit'];
+    echo "<script> location.href='admin.php?page=penjualan&subpage=penjualan-detail&id=".$id."'</script>";
+}
+
+if(isset($_POST['penjualan-edit-submit'])){
+    $penjualanController = new PenjualanController;
+    $data = array(
+        'id_penjualan' => $_POST['id_penjualan'],
+        'jumlah_penjualan' => $_POST['jumlah_penjualan'],
+        'harga_jual' => $_POST['harga_jual'],
+        'id_barang' => $_POST['id_barang'],
+        'id_pelanggan' => $_POST['id_pelanggan']
+    );
+    
+    $penjualanController->penjualan_edit_submit($data);
+    
+    echo "<script>alert('Edit Penjualan Berhasil');  location.href='admin.php?page=penjualan&&subpage=penjualan-list'</script>";
+}
+
+if(isset($_GET['penjualan-delete'])){
+    $data = array(
+        'id_penjualan' => $_GET['penjualan-delete']
+    );
+    $penjualanController = new PenjualanController;
+    $penjualanController->penjualan_delete_submit($data);
+    echo "<script>alert('Delete Penjualan Berhasil');  location.href='admin.php?page=penjualan&&subpage=penjualan-list'</script>";
+}
+
+
+// SUPPLIER
+if (isset($_POST['supplier-add-submit'])) {
+    $supplierController = new SupplierController;
+    $data = array(
+        'nama_supplier' => $_POST['nama_supplier'],
+        'no_hp_supplier' => $_POST['no_hp_supplier'],
+        'alamat_supplier' => $_POST['alamat_supplier']
+    );
+
+    $supplierController->supplier_add_submit($data);
+
+    echo "<script>alert('Tambah Supplier Berhasil'); location.href='admin.php?page=supplier&&subpage=supplier-list'</script>";
+}
+
+if(isset($_GET['supplier-edit'])){
+    $id = $_GET['supplier-edit'];
+    echo "<script> location.href='admin.php?page=supplier&subpage=supplier-detail&id=".$id."'</script>";
+}
+
+if(isset($_POST['supplier-edit-submit'])){
+    $supplierController = new SupplierController;
+    $data = array(
+        'id_supplier' => $_POST['id_supplier'],
+        'nama_supplier' => $_POST['nama_supplier'],
+        'no_hp_supplier' => $_POST['no_hp_supplier'],
+        'alamat_supplier' => $_POST['alamat_supplier']
+    );
+    
+    $supplierController->supplier_edit_submit($data);
+    
+    echo "<script>alert('Edit Supplier Berhasil');  location.href='admin.php?page=supplier&&subpage=supplier-list'</script>";
+}
+
+if(isset($_GET['supplier-delete'])){
+    $data = array(
+        'id_supplier' => $_GET['supplier-delete']
+    );
+    $supplierController = new SupplierController;
+    $supplierController->supplier_delete_submit($data);
+    echo "<script>alert('Delete Supplier Berhasil');  location.href='admin.php?page=supplier&&subpage=supplier-list'</script>";
+}
+
+
+// PELANGGAN
+if (isset($_POST['pelanggan-add-submit'])) {
+    $pelangganController = new PelangganController;
+    $data = array(
+        'nama_pelanggan' => $_POST['nama_pelanggan'],
+        'no_hp_pelanggan' => $_POST['no_hp_pelanggan'],
+        'alamat_pelanggan' => $_POST['alamat_pelanggan']
+    );
+
+    $pelangganController->pelanggan_add_submit($data);
+
+    echo "<script>alert('Tambah Pelanggan Berhasil'); location.href='admin.php?page=pelanggan&&subpage=pelanggan-list'</script>";
+}
+
+if(isset($_GET['pelanggan-edit'])){
+    $id = $_GET['pelanggan-edit'];
+    echo "<script> location.href='admin.php?page=pelanggan&subpage=pelanggan-detail&id=".$id."'</script>";
+}
+
+if(isset($_POST['pelanggan-edit-submit'])){
+    $pelangganController = new PelangganController;
+    $data = array(
+        'id_pelanggan' => $_POST['id_pelanggan'],
+        'nama_pelanggan' => $_POST['nama_pelanggan'],
+        'no_hp_pelanggan' => $_POST['no_hp_pelanggan'],
+        'alamat_pelanggan' => $_POST['alamat_pelanggan']
+    );
+    
+    $pelangganController->pelanggan_edit_submit($data);
+    
+    echo "<script>alert('Edit Pelanggan Berhasil');  location.href='admin.php?page=pelanggan&&subpage=pelanggan-list'</script>";
+}
+
+if(isset($_GET['pelanggan-delete'])){
+    $data = array(
+        'id_pelanggan' => $_GET['pelanggan-delete']
+    );
+    $pelangganController = new PelangganController;
+    $pelangganController->pelanggan_delete_submit($data);
+    echo "<script>alert('Delete Pelanggan Berhasil');  location.href='admin.php?page=pelanggan&&subpage=pelanggan-list'</script>";
+}

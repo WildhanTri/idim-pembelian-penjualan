@@ -30,13 +30,9 @@ $hak_akses_list = $hakAksesController->hak_akses_list();
                             $no++ ?></td>
                         <td style="width:200px"><?php echo $hak_akses['nama_akses'] ?></td>
                         <td><?php echo $hak_akses['keterangan'] ?></td>
-                        <td>
-                            <div class="clm-6 np-y" style="padding-right:0px;">
-                                <a href="submit.php?hak-akses-edit=<?php echo $hak_akses['id_akses'] ?>"><button class="btn btn-warning">Edit</button></a>
-                            </div>
-                            <div class="clm-6 np-y">
-                                <a href="submit.php?hak-akses-delete=<?php echo $hak_akses['id_akses'] ?>"><button class="btn btn-danger">Hapus</button></a>
-                            </div>
+                        <td class="text-center">
+                            <a href="submit.php?hak-akses-edit=<?php echo $hak_akses['id_akses'] ?>"><button class="btn btn-warning">Edit</button></a>
+                            <a href="submit.php?hak-akses-delete=<?php echo $hak_akses['id_akses'] ?>"><button class="btn btn-danger">Hapus</button></a>
                         </td>
                     </tr>
                 <?php endforeach ?>
