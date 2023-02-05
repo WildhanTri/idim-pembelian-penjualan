@@ -9,6 +9,7 @@ require "controller/customer_controller.php";
 
 require 'class/barang.php';
 require 'class/hak_akses.php';
+require 'class/pengguna.php';
 
 // HAK AKSES
 if(isset($_POST['hak-akses-add-submit'])){
@@ -53,16 +54,16 @@ if(isset($_GET['hak-akses-delete'])){
 // PENGGUNA
 if(isset($_POST['pengguna-add-submit'])){
     $penggunaController = new PenggunaController;
-    $data = array(
-            'nama_pengguna' => $_POST['nama_pengguna'],
-            'password' => $_POST['password'],
-            'nama_depan' => $_POST['nama_depan'],
-            'nama_belakang' => $_POST['nama_belakang'],
-            'no_hp' => $_POST['no_hp'],
-            'alamat' => $_POST['alamat'],
-            'id_akses' => $_POST['id_akses'],
-    );
-    
+
+    $data = new Pengguna();
+    $data->set_nama_pengguna($_POST['nama_pengguna']);
+    $data->set_password($_POST['password']);
+    $data->set_nama_depan($_POST['nama_depan']);
+    $data->set_nama_belakang($_POST['nama_belakang']);
+    $data->set_no_hp($_POST['no_hp']);
+    $data->set_alamat($_POST['alamat']);
+    $data->set_id_akses($_POST['id_akses']);
+
     $penggunaController->pengguna_add_submit($data);
     
     echo "<script>alert('Tambah Pengguna Berhasil'); location.href='admin.php?page=pengguna&&subpage=pengguna-list'</script>";
@@ -75,16 +76,16 @@ if(isset($_GET['pengguna-edit'])){
 
 if(isset($_POST['pengguna-edit-submit'])){
     $penggunaController = new PenggunaController;
-    $data = array(
-            'id_pengguna' => $_POST['id_pengguna'],
-            'nama_pengguna' => $_POST['nama_pengguna'],
-            'password' => $_POST['password'],
-            'nama_depan' => $_POST['nama_depan'],
-            'nama_belakang' => $_POST['nama_belakang'],
-            'no_hp' => $_POST['no_hp'],
-            'alamat' => $_POST['alamat'],
-            'id_akses' => $_POST['id_akses'],
-    );
+
+    $data = new Pengguna();
+    $data->set_id_pengguna($_POST['id_pengguna']);
+    $data->set_nama_pengguna($_POST['nama_pengguna']);
+    $data->set_password($_POST['password']);
+    $data->set_nama_depan($_POST['nama_depan']);
+    $data->set_nama_belakang($_POST['nama_belakang']);
+    $data->set_no_hp($_POST['no_hp']);
+    $data->set_alamat($_POST['alamat']);
+    $data->set_id_akses($_POST['id_akses']);
     
     $penggunaController->pengguna_edit_submit($data);
     
