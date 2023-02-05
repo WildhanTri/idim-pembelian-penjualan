@@ -122,12 +122,12 @@ if(isset($_GET['barang-edit'])){
 
 if(isset($_POST['barang-edit-submit'])){
     $barangController = new BarangController;
-    $data = array(
-            'id_barang' => $_POST['id_barang'],
-            'nama_barang' => $_POST['nama_barang'],
-            'keterangan' => $_POST['keterangan'],
-            'satuan' => $_POST['satuan']
-    );
+
+    $data = new Barang();
+    $data->set_id_barang($_POST['id_barang']);
+    $data->set_nama_barang($_POST['nama_barang']);
+    $data->set_keterangan($_POST['keterangan']);
+    $data->set_satuan($_POST['satuan']);
     
     $barangController->barang_edit_submit($data);
     

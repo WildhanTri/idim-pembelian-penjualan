@@ -61,10 +61,10 @@ class BarangController {
         
         $model = new model;
         
-        $id_barang = $data['id_barang'];
-        $nama_barang = $data['nama_barang'];
-        $keterangan = $data['keterangan'];
-        $satuan = $data['satuan'];
+        $id_barang = $data->get_id_barang();
+        $nama_barang = $data->get_nama_barang();
+        $keterangan = $data->get_keterangan();
+        $satuan = $data->get_satuan();
         
         $model->updateWhere("barang", "nama_barang = '$nama_barang', keterangan = '$keterangan', satuan = '$satuan'", "id_barang = '$id_barang'");
     }
