@@ -5,7 +5,7 @@ require "controller/barang_controller.php";
 require "controller/pembelian_controller.php";
 require "controller/penjualan_controller.php";
 require "controller/supplier_controller.php";
-require "controller/pelanggan_controller.php";
+require "controller/customer_controller.php";
 
 // HAK AKSES
 if(isset($_POST['hak-akses-add-submit'])){
@@ -108,12 +108,12 @@ if(isset($_POST['barang-add-submit'])){
     
     $barangController->barang_add_submit($data);
     
-    echo "<script>alert('Tambah Barang Berhasil'); location.href='admin.php?page=pembelian&&subpage=pembelian-list'</script>";
+    echo "<script>alert('Tambah Barang Berhasil'); location.href='admin.php?page=barang&&subpage=barang-list'</script>";
 }
 
 if(isset($_GET['barang-edit'])){
     $id = $_GET['barang-edit'];
-    echo "<script> location.href='admin.php?page=pembelian&subpage=pembelian-detail&id=".$id."'</script>";
+    echo "<script> location.href='admin.php?page=barang&subpage=barang-detail&id=".$id."'</script>";
 }
 
 if(isset($_POST['barang-edit-submit'])){
@@ -127,7 +127,7 @@ if(isset($_POST['barang-edit-submit'])){
     
     $barangController->barang_edit_submit($data);
     
-    echo "<script>alert('Edit Barang Berhasil');  location.href='admin.php?page=pembelian&&subpage=pembelian-list'</script>";
+    echo "<script>alert('Edit Barang Berhasil');  location.href='admin.php?page=barang&&subpage=barang-list'</script>";
 }
 
 if(isset($_GET['barang-delete'])){
@@ -136,7 +136,7 @@ if(isset($_GET['barang-delete'])){
     );
     $barangController = new BarangController;
     $barangController->barang_delete_submit($data);
-    echo "<script>alert('Delete Barang Berhasil');  location.href='admin.php?page=pembelian&&subpage=pembelian-list'</script>";
+    echo "<script>alert('Delete Barang Berhasil');  location.href='admin.php?page=barang&&subpage=barang-list'</script>";
 }
 
 // PEMBELIAN
@@ -190,7 +190,7 @@ if(isset($_POST['penjualan-add-submit'])){
             'jumlah_penjualan' => $_POST['jumlah_penjualan'],
             'harga_jual' => $_POST['harga_jual'],
             'id_barang' => $_POST['id_barang'],
-            'id_pelanggan' => $_POST['id_pelanggan']
+            'id_customer' => $_POST['id_customer']
     );
     
     $penjualanController->penjualan_add_submit($data);
@@ -210,7 +210,7 @@ if(isset($_POST['penjualan-edit-submit'])){
         'jumlah_penjualan' => $_POST['jumlah_penjualan'],
         'harga_jual' => $_POST['harga_jual'],
         'id_barang' => $_POST['id_barang'],
-        'id_pelanggan' => $_POST['id_pelanggan']
+        'id_customer' => $_POST['id_customer']
     );
     
     $penjualanController->penjualan_edit_submit($data);
@@ -271,44 +271,44 @@ if(isset($_GET['supplier-delete'])){
 }
 
 
-// PELANGGAN
-if (isset($_POST['pelanggan-add-submit'])) {
-    $pelangganController = new PelangganController;
+// CUSTOMER
+if (isset($_POST['customer-add-submit'])) {
+    $customerController = new customerController;
     $data = array(
-        'nama_pelanggan' => $_POST['nama_pelanggan'],
-        'no_hp_pelanggan' => $_POST['no_hp_pelanggan'],
-        'alamat_pelanggan' => $_POST['alamat_pelanggan']
+        'nama_customer' => $_POST['nama_customer'],
+        'no_hp_customer' => $_POST['no_hp_customer'],
+        'alamat_customer' => $_POST['alamat_customer']
     );
 
-    $pelangganController->pelanggan_add_submit($data);
+    $customerController->customer_add_submit($data);
 
-    echo "<script>alert('Tambah Pelanggan Berhasil'); location.href='admin.php?page=pelanggan&&subpage=pelanggan-list'</script>";
+    echo "<script>alert('Tambah Customer Berhasil'); location.href='admin.php?page=customer&&subpage=customer-list'</script>";
 }
 
-if(isset($_GET['pelanggan-edit'])){
-    $id = $_GET['pelanggan-edit'];
-    echo "<script> location.href='admin.php?page=pelanggan&subpage=pelanggan-detail&id=".$id."'</script>";
+if(isset($_GET['customer-edit'])){
+    $id = $_GET['customer-edit'];
+    echo "<script> location.href='admin.php?page=customer&subpage=customer-detail&id=".$id."'</script>";
 }
 
-if(isset($_POST['pelanggan-edit-submit'])){
-    $pelangganController = new PelangganController;
+if(isset($_POST['customer-edit-submit'])){
+    $customerController = new CustomerController;
     $data = array(
-        'id_pelanggan' => $_POST['id_pelanggan'],
-        'nama_pelanggan' => $_POST['nama_pelanggan'],
-        'no_hp_pelanggan' => $_POST['no_hp_pelanggan'],
-        'alamat_pelanggan' => $_POST['alamat_pelanggan']
+        'id_customer' => $_POST['id_customer'],
+        'nama_customer' => $_POST['nama_customer'],
+        'no_hp_customer' => $_POST['no_hp_customer'],
+        'alamat_customer' => $_POST['alamat_customer']
     );
     
-    $pelangganController->pelanggan_edit_submit($data);
+    $customerController->customer_edit_submit($data);
     
-    echo "<script>alert('Edit Pelanggan Berhasil');  location.href='admin.php?page=pelanggan&&subpage=pelanggan-list'</script>";
+    echo "<script>alert('Edit Customer Berhasil');  location.href='admin.php?page=customer&&subpage=customer-list'</script>";
 }
 
-if(isset($_GET['pelanggan-delete'])){
+if(isset($_GET['customer-delete'])){
     $data = array(
-        'id_pelanggan' => $_GET['pelanggan-delete']
+        'id_customer' => $_GET['customer-delete']
     );
-    $pelangganController = new PelangganController;
-    $pelangganController->pelanggan_delete_submit($data);
-    echo "<script>alert('Delete Pelanggan Berhasil');  location.href='admin.php?page=pelanggan&&subpage=pelanggan-list'</script>";
+    $customerController = new CustomerController;
+    $customerController->customer_delete_submit($data);
+    echo "<script>alert('Delete Customer Berhasil');  location.href='admin.php?page=customer&&subpage=customer-list'</script>";
 }

@@ -1,5 +1,8 @@
 <?php
 require_once "controller/pembelian_controller.php";
+require_once "controller/supplier_controller.php";
+require_once "controller/barang_controller.php";
+
 $pembelianController = new PembelianController();
 $pembelianController->callasset();
 
@@ -7,6 +10,12 @@ $pembelianDetail = null;
 if (isset($_GET['id'])) {
   $pembelianDetail = $pembelianController->pembelian_detail($_GET['id']);
 }
+
+$supplierController = new SupplierController();
+$supplierList = $supplierController->supplier_list();
+
+$barangController = new BarangController();
+$barangList = $barangController->barang_list();
 ?>
 <html>
 
@@ -23,20 +32,39 @@ if (isset($_GET['id'])) {
     <?php endif ?>
     <table class="table">
       <tr>
-        <td>Nama Pembelian</td>
+        <td>Barang</td>
         <td>:</td>
-        <td><input type="text" class="input" name="nama_pembelian" value="<?php echo $pembelianDetail != null ? $pembelianDetail[0]['nama_pembelian'] : '' ?>" autocomplete="off" /></td>
-      </tr>
-      <tr>
-        <td>No HP</td>
-        <td>:</td>
-        <td><input type="text" class="input" name="no_hp_pembelian" value="<?php echo $pembelianDetail != null ? $pembelianDetail[0]['no_hp_pembelian'] : '' ?>" autocomplete="off" /></td>
-      </tr>
-      <tr>
-        <td style="vertical-align:top;">Alamat Pembelian</td>
-        <td style="vertical-align:top;">:</td>
         <td>
-          <textarea class="input" name="alamat_pembelian" autocomplete="off"><?php echo $pembelianDetail != null ? $pembelianDetail[0]['alamat_pembelian'] : '' ?></textarea>
+          <select name="id_barang" class="input">
+            <?php foreach ($barangList as $barang) : ?>
+              <option value="<?php echo $barang['id_barang']; ?>" <?php if ($pembelianDetail != null && $barang['id_barang'] == $pembelianDetail[0]['id_barang']) {
+                                                                        echo "selected";
+                                                                      } ?>><?php echo $barang['nama_barang'] . " (" . $barang["satuan"] . ")"; ?></option>
+            <?php endforeach ?>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Harga Beli</td>
+        <td>:</td>
+        <td><input type="text" class="input" name="harga_beli" value="<?php echo $pembelianDetail != null ? $pembelianDetail[0]['harga_beli'] : '' ?>" autocomplete="off" /></td>
+      </tr>
+      <tr>
+        <td>Jumlah Pembelian</td>
+        <td>:</td>
+        <td><input type="text" class="input" name="jumlah_pembelian" value="<?php echo $pembelianDetail != null ? $pembelianDetail[0]['jumlah_pembelian'] : '' ?>" autocomplete="off" /></td>
+      </tr>
+      <tr>
+        <td>Supplier</td>
+        <td>:</td>
+        <td>
+          <select name="id_supplier" class="input">
+            <?php foreach ($supplierList as $supplier) : ?>
+              <option value="<?php echo $supplier['id_supplier']; ?>" <?php if ($pembelianDetail != null && $supplier['id_supplier'] == $pembelianDetail[0]['id_supplier']) {
+                                                                        echo "selected";
+                                                                      } ?>><?php echo $supplier['nama_supplier']; ?></option>
+            <?php endforeach ?>
+          </select>
         </td>
       </tr>
       <tr>

@@ -28,7 +28,7 @@ class PembelianController {
         $this->callmodel();
         $model = new model;
         
-        $penjualan_list = $model->select("pembelian");
+        $penjualan_list = $model->select2Table("pembelian", "supplier", "pembelian.id_supplier = supplier.id_supplier");
         return $penjualan_list;
     }
     
@@ -51,7 +51,7 @@ class PembelianController {
         $id_barang = $data['id_barang'];
         $id_supplier = $data['id_supplier'];
         
-        $model->insert("pembelian", "null, '$jumlah_pembelian', '$harga_beli', '$id_barang', '$id_supplier'");
+        $model->insert("pembelian", "null, '$jumlah_pembelian', '$harga_beli', '$id_barang', '$id_supplier', NOW(), null");
     }
 
     function pembelian_edit_submit($data){

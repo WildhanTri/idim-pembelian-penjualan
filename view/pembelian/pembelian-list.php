@@ -68,9 +68,9 @@ $pembelian_list = $pembelianController->pembelian_list();
         <thead>
           <td></td>
           <td>No</td>
-          <td>Nama Pembelian</td>
-          <td>No HP</td>
-          <td>Alamat</td>
+          <td>Nama Supplier</td>
+          <td>Jumlah Pembelian</td>
+          <td>Harga Beli</td>
           <td></td>
         </thead>
 
@@ -80,9 +80,10 @@ $pembelian_list = $pembelianController->pembelian_list();
             <td><input type="checkbox" value="<?php echo $pembelian['id_pembelian'] ?>" name="pembelian[]" onclick="checkboxes()"></td>
             <td><?php echo $no;
                 $no++ ?></td>
-            <td style="width:200px"><?php echo $pembelian['nama_pembelian'] ?></td>
-            <td><?php echo $pembelian['no_hp_pembelian'] ?></td>
-            <td><?php echo $pembelian['alamat_pembelian'] ?></td>
+            <td style="width:200px"><?php echo $pembelian['nama_supplier'] ?></td>
+            <td><?php echo $pembelian['jumlah_pembelian'] ?></td>
+            <td><?php echo $pembelian['harga_beli'] ?></td>
+            <td><?php echo $pembelian['created_at'] ?></td>
             <td class="text-center">
               <a href="submit.php?pembelian-edit=<?php echo $pembelian['id_pembelian'] ?>"><button class="btn btn-warning">Edit</button></a>
               <a href="submit.php?pembelian-delete=<?php echo $pembelian['id_pembelian'] ?>"><button class="btn btn-danger">Hapus</button></a>

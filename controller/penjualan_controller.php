@@ -28,7 +28,7 @@ class PenjualanController {
         $this->callmodel();
         $model = new model;
         
-        $penjualan_list = $model->select("penjualan");
+        $penjualan_list = $model->select2Table("penjualan", "customer", "penjualan.id_customer = customer.id_customer");
         return $penjualan_list;
     }
     
@@ -49,9 +49,9 @@ class PenjualanController {
         $jumlah_penjualan = $data['jumlah_penjualan'];
         $harga_jual = $data['harga_jual'];
         $id_barang = $data['id_barang'];
-        $id_pelanggan = $data['id_pelanggan'];
+        $id_customer = $data['id_customer'];
         
-        $model->insert("penjualan", "null, '$jumlah_penjualan', '$harga_jual', '$id_barang', '$id_pelanggan'");
+        $model->insert("penjualan", "null, '$jumlah_penjualan', '$harga_jual', '$id_barang', '$id_customer', NOW(), null");
     }
 
     function penjualan_edit_submit($data){
@@ -63,9 +63,9 @@ class PenjualanController {
         $jumlah_penjualan = $data['jumlah_penjualan'];
         $harga_jual = $data['harga_jual'];
         $id_barang = $data['id_barang'];
-        $id_pelanggan = $data['id_pelanggan'];
+        $id_customer = $data['id_customer'];
         
-        $model->updateWhere("penjualan", "jumlah_penjualan = '$jumlah_penjualan', harga_jual = '$harga_jual', id_barang = '$id_barang', id_pelanggan = '$id_pelanggan'", "id_penjualan = '$id_penjualan'");
+        $model->updateWhere("penjualan", "jumlah_penjualan = '$jumlah_penjualan', harga_jual = '$harga_jual', id_barang = '$id_barang', id_customer = '$id_customer'", "id_penjualan = '$id_penjualan'");
     }
     
     function penjualan_delete_submit($data){

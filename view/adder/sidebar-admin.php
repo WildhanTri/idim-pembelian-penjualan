@@ -11,7 +11,7 @@
                             <a href="?page=penjualan&subpage=penjualan-list"><li>Penjualan</li></a>
                             <a href="?page=pembelian&subpage=pembelian-list"><li>Pembelian</li></a>
                             <a href="?page=supplier&subpage=supplier-list"><li>Supplier</li></a>
-                            <a href="?page=pelanggan&subpage=pelanggan-list"><li>Pelanggan</li></a>
+                            <a href="?page=customer&subpage=customer-list"><li>Customer</li></a>
                         </ul>
                     </nav>
                 </div>
