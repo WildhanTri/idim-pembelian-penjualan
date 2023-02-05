@@ -10,6 +10,7 @@ require "controller/customer_controller.php";
 require 'class/barang.php';
 require 'class/hak_akses.php';
 require 'class/pengguna.php';
+require 'class/penjualan.php';
 
 // HAK AKSES
 if(isset($_POST['hak-akses-add-submit'])){
@@ -190,13 +191,13 @@ if(isset($_GET['pembelian-delete'])){
 // PENJUALAN
 if(isset($_POST['penjualan-add-submit'])){
     $penjualanController = new PenjualanController;
-    $data = array(
-            'jumlah_penjualan' => $_POST['jumlah_penjualan'],
-            'harga_jual' => $_POST['harga_jual'],
-            'id_barang' => $_POST['id_barang'],
-            'id_customer' => $_POST['id_customer']
-    );
     
+    $data = new Penjualan();
+    $data->set_jumlah_penjualan($_POST['jumlah_penjualan']);
+    $data->set_harga_jual($_POST['harga_jual']);
+    $data->set_id_barang($_POST['id_barang']);
+    $data->set_id_customer($_POST['id_customer']);
+
     $penjualanController->penjualan_add_submit($data);
     
     echo "<script>alert('Tambah Penjualan Berhasil'); location.href='admin.php?page=penjualan&&subpage=penjualan-list'</script>";
@@ -209,14 +210,14 @@ if(isset($_GET['penjualan-edit'])){
 
 if(isset($_POST['penjualan-edit-submit'])){
     $penjualanController = new PenjualanController;
-    $data = array(
-        'id_penjualan' => $_POST['id_penjualan'],
-        'jumlah_penjualan' => $_POST['jumlah_penjualan'],
-        'harga_jual' => $_POST['harga_jual'],
-        'id_barang' => $_POST['id_barang'],
-        'id_customer' => $_POST['id_customer']
-    );
-    
+
+    $data = new Penjualan();
+    $data->set_id_penjualan($_POST['id_penjualan']);
+    $data->set_jumlah_penjualan($_POST['jumlah_penjualan']);
+    $data->set_harga_jual($_POST['harga_jual']);
+    $data->set_id_barang($_POST['id_barang']);
+    $data->set_id_customer($_POST['id_customer']);
+
     $penjualanController->penjualan_edit_submit($data);
     
     echo "<script>alert('Edit Penjualan Berhasil');  location.href='admin.php?page=penjualan&&subpage=penjualan-list'</script>";

@@ -7,43 +7,6 @@ if(!isset($_SESSION)) {
 require_once "controller/base_controller.php";
 
 class PenjualanController {
-    private $id_penjualan;
-    private $jumlah_penjualan;
-    private $harga_jual;
-    private $id_barang;
-
-    function set_id_penjualan($id_penjualan) {
-        $this->id_penjualan = $id_penjualan;
-    }
-
-    function set_jumlah_penjualan($jumlah_penjualan) {
-        $this->jumlah_penjualan = $jumlah_penjualan;
-    }
-
-    function set_harga_jual($harga_jual) {
-        $this->harga_jual = $harga_jual;
-    }
-
-    function set_id_barang($id_barang) {
-        $this->id_barang = $id_barang;
-    }
-
-    function get_id_penjualan() {
-        return $this->id_penjualan;
-    }
-
-    function get_jumlah_penjualan() {
-        return $this->jumlah_penjualan;
-    }
-
-    function get_harga_jual() {
-        return $this->harga_jual;
-    }
-
-    function get_id_barang() {
-        return $this->id_barang;
-    }
-
     function callasset(){
         $baseController = new BaseController();
         $baseController->callasset();
@@ -83,10 +46,10 @@ class PenjualanController {
         
         $model = new model;
         
-        $jumlah_penjualan = $data['jumlah_penjualan'];
-        $harga_jual = $data['harga_jual'];
-        $id_barang = $data['id_barang'];
-        $id_customer = $data['id_customer'];
+        $jumlah_penjualan = $data->get_jumlah_penjualan();
+        $harga_jual = $data->get_harga_jual();
+        $id_barang = $data->get_id_barang();
+        $id_customer = $data->get_id_customer();
         
         $model->insert("penjualan", "null, '$jumlah_penjualan', '$harga_jual', '$id_barang', '$id_customer', NOW(), null");
     }
@@ -96,11 +59,11 @@ class PenjualanController {
         
         $model = new model;
 
-        $id_penjualan = $data['id_penjualan'];
-        $jumlah_penjualan = $data['jumlah_penjualan'];
-        $harga_jual = $data['harga_jual'];
-        $id_barang = $data['id_barang'];
-        $id_customer = $data['id_customer'];
+        $id_penjualan = $data->get_id_penjualan();
+        $jumlah_penjualan = $data->get_jumlah_penjualan();
+        $harga_jual = $data->get_harga_jual();
+        $id_barang = $data->get_id_barang();
+        $id_customer = $data->get_id_customer();
         
         $model->updateWhere("penjualan", "jumlah_penjualan = '$jumlah_penjualan', harga_jual = '$harga_jual', id_barang = '$id_barang', id_customer = '$id_customer'", "id_penjualan = '$id_penjualan'");
     }
