@@ -12,6 +12,7 @@ require 'class/hak_akses.php';
 require 'class/pengguna.php';
 require 'class/penjualan.php';
 require 'class/pembelian.php';
+require 'class/supplier.php';
 
 // HAK AKSES
 if(isset($_POST['hak-akses-add-submit'])){
@@ -237,11 +238,11 @@ if(isset($_GET['penjualan-delete'])){
 // SUPPLIER
 if (isset($_POST['supplier-add-submit'])) {
     $supplierController = new SupplierController;
-    $data = array(
-        'nama_supplier' => $_POST['nama_supplier'],
-        'no_hp_supplier' => $_POST['no_hp_supplier'],
-        'alamat_supplier' => $_POST['alamat_supplier']
-    );
+
+    $data = new Supplier();
+    $data->set_nama_supplier($_POST['nama_supplier']);
+    $data->set_no_hp_supplier($_POST['no_hp_supplier']);
+    $data->set_alamat_supplier($_POST['alamat_supplier']);
 
     $supplierController->supplier_add_submit($data);
 
@@ -255,12 +256,12 @@ if(isset($_GET['supplier-edit'])){
 
 if(isset($_POST['supplier-edit-submit'])){
     $supplierController = new SupplierController;
-    $data = array(
-        'id_supplier' => $_POST['id_supplier'],
-        'nama_supplier' => $_POST['nama_supplier'],
-        'no_hp_supplier' => $_POST['no_hp_supplier'],
-        'alamat_supplier' => $_POST['alamat_supplier']
-    );
+
+    $data = new Supplier();
+    $data->set_id_supplier($_POST['id_supplier']);
+    $data->set_nama_supplier($_POST['nama_supplier']);
+    $data->set_no_hp_supplier($_POST['no_hp_supplier']);
+    $data->set_alamat_supplier($_POST['alamat_supplier']);
     
     $supplierController->supplier_edit_submit($data);
     

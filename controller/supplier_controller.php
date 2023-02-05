@@ -46,9 +46,9 @@ class SupplierController {
         
         $model = new model;
         
-        $nama_supplier = $data['nama_supplier'];
-        $no_hp_supplier = $data['no_hp_supplier'];
-        $alamat_supplier = $data['alamat_supplier'];
+        $nama_supplier = $data->get_nama_supplier();
+        $no_hp_supplier = $data->get_no_hp_supplier();
+        $alamat_supplier = $data->get_alamat_supplier();
         
         $model->insert("supplier", "null, '$nama_supplier', '$no_hp_supplier', '$alamat_supplier'");
     }
@@ -58,10 +58,10 @@ class SupplierController {
         
         $model = new model;
 
-        $id_supplier = $data['id_supplier'];
-        $nama_supplier = $data['nama_supplier'];
-        $no_hp_supplier = $data['no_hp_supplier'];
-        $alamat_supplier = $data['alamat_supplier'];
+        $id_supplier = $data->get_id_supplier();
+        $nama_supplier = $data->get_nama_supplier();
+        $no_hp_supplier = $data->get_no_hp_supplier();
+        $alamat_supplier = $data->get_alamat_supplier();
         
         $model->updateWhere("supplier", "nama_supplier = '$nama_supplier', no_hp_supplier = '$no_hp_supplier', alamat_supplier = '$alamat_supplier'", "id_supplier = '$id_supplier'");
     }
