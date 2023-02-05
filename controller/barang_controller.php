@@ -41,27 +41,27 @@ class BarangController {
 
     function get_id_barang()
     {
-        return this->id_barang;
+        return $this->id_barang;
     }
 
     function get_nama_barang()
     {
-        return this->nama_barang;
+        return $this->nama_barang;
     }
 
     function get_keterangan()
     {
-        return this->keterangan;
+        return $this->keterangan;
     }
 
     function get_satuan()
     {
-        return this->satuan;
+        return $this->satuan;
     }
 
     function get_id_pengguna()
     {
-        return this->id_pengguna;
+        return $this->id_pengguna;
     }
 
     function callasset(){
