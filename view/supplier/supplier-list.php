@@ -15,18 +15,16 @@ $supplier_list = $supplierController->supplier_list();
     <table class="table table-bordered" style="margin-top:10px">
       <?php if ($supplier_list != null) : ?>
         <thead>
-          <td></td>
-          <td>No</td>
-          <td>Nama Supplier</td>
-          <td>No HP</td>
-          <td>Alamat</td>
-          <td></td>
+          <th>No</th>
+          <th>Nama Supplier</th>
+          <th>No HP</th>
+          <th>Alamat</th>
+          <th></th>
         </thead>
 
         <?php $no = 1;
         foreach ($supplier_list as  $supplier) : ?>
           <tr>
-            <td><input type="checkbox" value="<?php echo $supplier['id_supplier'] ?>" name="supplier[]" onclick="checkboxes()"></td>
             <td><?php echo $no;
                 $no++ ?></td>
             <td style="width:200px"><?php echo $supplier['nama_supplier'] ?></td>

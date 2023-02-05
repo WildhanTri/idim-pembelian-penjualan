@@ -25,7 +25,7 @@ if (isset($_GET['id'])) {
       <tr>
         <td>Nama Hak Akses</td>
         <td>:</td>
-        <td><input type="text" class="form-control" name="nama_akses" value="<?php echo $hakAksesDetail != null ? $hakAksesDetail[0]['nama_akses'] : '' ?>" autocomplete="off" /></td>
+        <td><input type="text" class="form-control" name="nama_akses" value="<?php echo $hakAksesDetail != null ? $hakAksesDetail[0]['nama_akses'] : '' ?>" autocomplete="off" required/></td>
       </tr>
       <tr>
         <td style="vertical-align:top;">Keterangan</td>

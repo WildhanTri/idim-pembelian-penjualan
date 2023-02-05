@@ -35,7 +35,7 @@ $barangList = $barangController->barang_list();
         <td>Barang</td>
         <td>:</td>
         <td>
-          <select name="id_barang" class="input">
+          <select name="id_barang" class="input" required>
             <?php foreach ($barangList as $barang) : ?>
               <option value="<?php echo $barang['id_barang']; ?>" <?php if ($penjualanDetail != null && $barang['id_barang'] == $penjualanDetail[0]['id_barang']) {
                                                                         echo "selected";
@@ -47,18 +47,18 @@ $barangList = $barangController->barang_list();
       <tr>
         <td>Harga Jual</td>
         <td>:</td>
-        <td><input type="text" class="input" name="harga_jual" value="<?php echo $penjualanDetail != null ? $penjualanDetail[0]['harga_jual'] : '' ?>" autocomplete="off" /></td>
+        <td><input type="text" class="input" name="harga_jual" value="<?php echo $penjualanDetail != null ? $penjualanDetail[0]['harga_jual'] : '' ?>" autocomplete="off" required/></td>
       </tr>
       <tr>
         <td>Jumlah Penjualan</td>
         <td>:</td>
-        <td><input type="text" class="input" name="jumlah_penjualan" value="<?php echo $penjualanDetail != null ? $penjualanDetail[0]['jumlah_penjualan'] : '' ?>" autocomplete="off" /></td>
+        <td><input type="text" class="input" name="jumlah_penjualan" value="<?php echo $penjualanDetail != null ? $penjualanDetail[0]['jumlah_penjualan'] : '' ?>" autocomplete="off" required/></td>
       </tr>
       <tr>
         <td>Nama Toko</td>
         <td>:</td>
         <td>
-          <select name="id_customer" class="input">
+          <select name="id_customer" class="input" required>
             <?php foreach ($customerList as $customer) : ?>
               <option value="<?php echo $customer['id_customer']; ?>" <?php if ($penjualanDetail != null && $customer['id_customer'] == $penjualanDetail[0]['id_customer']) {
                                                                         echo "selected";

@@ -100,6 +100,11 @@
     list-style: none;
     display: block;
     padding:15px;
+    background: #264f6d;
+}
+
+.nav ul li:hover {
+    filter: brightness(1.5);
 }
 
 .nav-platform ul li {
@@ -122,9 +127,19 @@
     color:antiquewhite;
 }
 
+.sidebar-nav ul li {
+    padding: 0px !important;
+}
+.sidebar-nav ul li a {
+    padding:16px;
+    display: inherit;
+}
+
+.sidebar-nav ul li.active {
+    filter: brightness(1.5);
+}
 .sidebar-nav ul li:hover {
     cursor:pointer;
-    color:#43e0e9;
 }
 
 

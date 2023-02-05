@@ -15,7 +15,6 @@ $hak_akses_list = $hakAksesController->hak_akses_list();
         <table class="table table-bordered" style="margin-top:10px">
             <?php if ($hak_akses_list != null) : ?>
                 <thead>
-                    <th scope="col"></th>
                     <th scope="col">No</th>
                     <th scope="col">Nama Akses</th>
                     <th scope="col">Keterangan</th>
@@ -25,7 +24,6 @@ $hak_akses_list = $hakAksesController->hak_akses_list();
                 <?php $no = 1;
                 foreach ($hak_akses_list as  $hak_akses) : ?>
                     <tr>
-                        <td><input type="checkbox" value="<?php echo $hak_akses['id_akses'] ?>" name="hak_akses[]" onclick="checkboxes()"></td>
                         <td><?php echo $no;
                             $no++ ?></td>
                         <td style="width:200px"><?php echo $hak_akses['nama_akses'] ?></td>

@@ -15,18 +15,16 @@ $barang_list = $barangController->barang_list();
     <table class="table table-bordered" style="margin-top:10px">
       <?php if ($barang_list != null) : ?>
         <thead>
-          <td></td>
-          <td>No</td>
-          <td>Nama Barang</td>
-          <td>Keterangan</td>
-          <td>Satuan</td>
-          <td></td>
+          <th>No</th>
+          <th>Nama Barang</th>
+          <th>Keterangan</th>
+          <th>Satuan</th>
+          <th></th>
         </thead>
 
         <?php $no = 1;
         foreach ($barang_list as  $barang) : ?>
           <tr>
-            <td><input type="checkbox" value="<?php echo $barang['id_barang'] ?>" name="barang[]" onclick="checkboxes()"></td>
             <td><?php echo $no;
                 $no++ ?></td>
             <td style="width:200px"><?php echo $barang['nama_barang'] ?></td>

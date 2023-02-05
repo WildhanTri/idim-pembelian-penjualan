@@ -25,19 +25,19 @@ if (isset($_GET['id'])) {
       <tr>
         <td>Nama Barang</td>
         <td>:</td>
-        <td><input type="text" class="input" name="nama_barang" value="<?php echo $barangDetail != null ? $barangDetail[0]['nama_barang'] : '' ?>" autocomplete="off" /></td>
+        <td><input type="text" class="input" name="nama_barang" value="<?php echo $barangDetail != null ? $barangDetail[0]['nama_barang'] : '' ?>" autocomplete="off" required/></td>
       </tr>
       <tr>
         <td style="vertical-align:top;">Keterangan</td>
         <td style="vertical-align:top;">:</td>
         <td>
-          <textarea class="input" name="keterangan" autocomplete="off"><?php echo $barangDetail != null ? $barangDetail[0]['keterangan'] : '' ?></textarea>
+          <textarea class="input" name="keterangan" autocomplete="off" required><?php echo $barangDetail != null ? $barangDetail[0]['keterangan'] : '' ?></textarea>
         </td>
       </tr>
       <tr>
         <td>Satuan</td>
         <td>:</td>
-        <td><input type="text" class="input" name="satuan" value="<?php echo $barangDetail != null ? $barangDetail[0]['satuan'] : '' ?>" autocomplete="off" /></td>
+        <td><input type="text" class="input" name="satuan" value="<?php echo $barangDetail != null ? $barangDetail[0]['satuan'] : '' ?>" autocomplete="off" required/></td>
       </tr>
       <tr>
         <td colspan="3" style="text-align:right">

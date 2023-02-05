@@ -15,18 +15,16 @@ $customer_list = $customerController->customer_list();
     <table class="table table-bordered" style="margin-top:10px">
       <?php if ($customer_list != null) : ?>
         <thead>
-          <td></td>
-          <td>No</td>
-          <td>Nama Customer</td>
-          <td>No HP</td>
-          <td>Alamat</td>
-          <td></td>
+          <th>No</th>
+          <th>Nama Customer</th>
+          <th>No HP</th>
+          <th>Alamat</th>
+          <th></th>
         </thead>
 
         <?php $no = 1;
         foreach ($customer_list as  $customer) : ?>
           <tr>
-            <td><input type="checkbox" value="<?php echo $customer['id_customer'] ?>" name="customer[]" onclick="checkboxes()"></td>
             <td><?php echo $no;
                 $no++ ?></td>
             <td style="width:200px"><?php echo $customer['nama_customer'] ?></td>

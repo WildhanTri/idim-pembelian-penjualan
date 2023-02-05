@@ -25,18 +25,18 @@ if (isset($_GET['id'])) {
       <tr>
         <td>Nama Customer</td>
         <td>:</td>
-        <td><input type="text" class="input" name="nama_customer" value="<?php echo $customerDetail != null ? $customerDetail[0]['nama_customer'] : '' ?>" autocomplete="off" /></td>
+        <td><input type="text" class="input" name="nama_customer" value="<?php echo $customerDetail != null ? $customerDetail[0]['nama_customer'] : '' ?>" autocomplete="off" required/></td>
       </tr>
       <tr>
         <td>No HP</td>
         <td>:</td>
-        <td><input type="text" class="input" name="no_hp_customer" value="<?php echo $customerDetail != null ? $customerDetail[0]['no_hp_customer'] : '' ?>" autocomplete="off" /></td>
+        <td><input type="tel" pattern="[0-9]*" class="input" name="no_hp_customer" value="<?php echo $customerDetail != null ? $customerDetail[0]['no_hp_customer'] : '' ?>" autocomplete="off" required/></td>
       </tr>
       <tr>
         <td style="vertical-align:top;">Alamat Customer</td>
         <td style="vertical-align:top;">:</td>
         <td>
-          <textarea class="input" name="alamat_customer" autocomplete="off"><?php echo $customerDetail != null ? $customerDetail[0]['alamat_customer'] : '' ?></textarea>
+          <textarea class="input" name="alamat_customer" autocomplete="off" required><?php echo $customerDetail != null ? $customerDetail[0]['alamat_customer'] : '' ?></textarea>
         </td>
       </tr>
       <tr>

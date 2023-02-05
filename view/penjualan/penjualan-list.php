@@ -15,19 +15,17 @@ $penjualan_list = $penjualanController->penjualan_list();
     <table class="table table-bordered" style="margin-top:10px">
       <?php if ($penjualan_list != null) : ?>
         <thead>
-          <td></td>
-          <td>No</td>
-          <td>Nama Customer</td>
-          <td>Nama Barang</td>
-          <td>Jumlah Penjualan</td>
-          <td>Harga Jual</td>
-          <td></td>
+          <th>No</th>
+          <th>Nama Customer</th>
+          <th>Nama Barang</th>
+          <th>Jumlah Penjualan</th>
+          <th>Harga Jual</th>
+          <th></th>
         </thead>
 
         <?php $no = 1;
         foreach ($penjualan_list as  $penjualan) : ?>
           <tr>
-            <td><input type="checkbox" value="<?php echo $penjualan['id_penjualan'] ?>" name="penjualan[]" onclick="checkboxes()"></td>
             <td><?php echo $no;
                 $no++ ?></td>
             <td style="width:200px"><?php echo $penjualan['nama_customer'] ?></td>

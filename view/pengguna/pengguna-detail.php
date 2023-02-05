@@ -31,18 +31,18 @@ $hakAksesList = $hakAksesController->hak_akses_list();
             <tr>
                 <td>Nama Pengguna</td>
                 <td>:</td>
-                <td><input type="text" class="input" name="nama_pengguna" value="<?php echo $penggunaDetail != null ? $penggunaDetail[0]['nama_pengguna'] : '' ?>" autocomplete="off" /></td>
+                <td><input type="text" class="input" name="nama_pengguna" value="<?php echo $penggunaDetail != null ? $penggunaDetail[0]['nama_pengguna'] : '' ?>" autocomplete="off" required/></td>
             </tr>
             <tr>
                 <td>Password</td>
                 <td>:</td>
-                <td><input type="text" class="input" name="password" value="<?php echo $penggunaDetail != null ? $penggunaDetail[0]['password'] : '' ?>" autocomplete="off" /></td>
+                <td><input type="text" class="input" name="password" value="<?php echo $penggunaDetail != null ? $penggunaDetail[0]['password'] : '' ?>" autocomplete="off" required/></td>
             </tr>
             <tr>
                 <td>Hak Akses</td>
                 <td>:</td>
                 <td>
-                    <select name="id_akses" class="input">
+                    <select name="id_akses" class="input" required>
                         <?php foreach ($hakAksesList as $hakAkses) : ?>
                             <option value="<?php echo $hakAkses['id_akses']; ?>" 
                             <?php if ($penggunaDetail != null && $hakAkses['id_akses'] == $penggunaDetail[0]['id_akses']) {
@@ -55,23 +55,23 @@ $hakAksesList = $hakAksesController->hak_akses_list();
             <tr>
                 <td>Nama Depan</td>
                 <td>:</td>
-                <td><input type="text" class="input" name="nama_depan" value="<?php echo $penggunaDetail != null ? $penggunaDetail[0]['nama_depan'] : '' ?>" autocomplete="off" /></td>
+                <td><input type="text" class="input" name="nama_depan" value="<?php echo $penggunaDetail != null ? $penggunaDetail[0]['nama_depan'] : '' ?>" autocomplete="off" required/></td>
             </tr>
             <tr>
                 <td>Nama Belakang</td>
                 <td>:</td>
-                <td><input type="text" class="input" name="nama_belakang" value="<?php echo $penggunaDetail != null ? $penggunaDetail[0]['nama_belakang'] : '' ?>" autocomplete="off" /></td>
+                <td><input type="text" class="input" name="nama_belakang" value="<?php echo $penggunaDetail != null ? $penggunaDetail[0]['nama_belakang'] : '' ?>" autocomplete="off" required/></td>
             </tr>
             <tr>
                 <td>No HP</td>
                 <td>:</td>
-                <td><input type="text" class="input" name="no_hp" value="<?php echo $penggunaDetail != null ? $penggunaDetail[0]['no_hp'] : '' ?>" autocomplete="off" /></td>
+                <td><input type="tel" pattern="[0-9]*" class="input" name="no_hp" value="<?php echo $penggunaDetail != null ? $penggunaDetail[0]['no_hp'] : '' ?>" autocomplete="off" required/></td>
             </tr>
             <tr>
                 <td style="vertical-align:top;">Alamat</td>
                 <td style="vertical-align:top;">:</td>
                 <td>
-                    <textarea class="input" name="alamat" autocomplete="off"><?php echo $penggunaDetail != null ? $penggunaDetail[0]['alamat'] : '' ?></textarea>
+                    <textarea class="input" name="alamat" autocomplete="off" required><?php echo $penggunaDetail != null ? $penggunaDetail[0]['alamat'] : '' ?> </textarea>
                 </td>
             </tr>
             <tr>

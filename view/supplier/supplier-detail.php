@@ -25,18 +25,18 @@ if (isset($_GET['id'])) {
       <tr>
         <td>Nama Supplier</td>
         <td>:</td>
-        <td><input type="text" class="input" name="nama_supplier" value="<?php echo $supplierDetail != null ? $supplierDetail[0]['nama_supplier'] : '' ?>" autocomplete="off" /></td>
+        <td><input type="text" class="input" name="nama_supplier" value="<?php echo $supplierDetail != null ? $supplierDetail[0]['nama_supplier'] : '' ?>" autocomplete="off" required/></td>
       </tr>
       <tr>
         <td>No HP</td>
         <td>:</td>
-        <td><input type="text" class="input" name="no_hp_supplier" value="<?php echo $supplierDetail != null ? $supplierDetail[0]['no_hp_supplier'] : '' ?>" autocomplete="off" /></td>
+        <td><input type="tel" pattern="[0-9]*" class="input" name="no_hp_supplier" value="<?php echo $supplierDetail != null ? $supplierDetail[0]['no_hp_supplier'] : '' ?>" autocomplete="off" required/></td>
       </tr>
       <tr>
         <td style="vertical-align:top;">Alamat Supplier</td>
         <td style="vertical-align:top;">:</td>
         <td>
-          <textarea class="input" name="alamat_supplier" autocomplete="off"><?php echo $supplierDetail != null ? $supplierDetail[0]['alamat_supplier'] : '' ?></textarea>
+          <textarea class="input" name="alamat_supplier" autocomplete="off" required><?php echo $supplierDetail != null ? $supplierDetail[0]['alamat_supplier'] : '' ?></textarea>
         </td>
       </tr>
       <tr>

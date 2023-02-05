@@ -15,18 +15,16 @@ $pembelian_list = $pembelianController->pembelian_list();
     <table class="table table-bordered" style="margin-top:10px">
       <?php if ($pembelian_list != null) : ?>
         <thead>
-          <td></td>
-          <td>No</td>
-          <td>Nama Supplier</td>
-          <td>Jumlah Pembelian</td>
-          <td>Harga Beli</td>
-          <td></td>
+          <th>No</th>
+          <th>Nama Supplier</th>
+          <th>Jumlah Pembelian</th>
+          <th>Harga Beli</th>
+          <th></th>
         </thead>
 
         <?php $no = 1;
         foreach ($pembelian_list as  $pembelian) : ?>
           <tr>
-            <td><input type="checkbox" value="<?php echo $pembelian['id_pembelian'] ?>" name="pembelian[]" onclick="checkboxes()"></td>
             <td><?php echo $no;
                 $no++ ?></td>
             <td style="width:200px"><?php echo $pembelian['nama_supplier'] ?></td>

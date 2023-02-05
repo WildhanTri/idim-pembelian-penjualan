@@ -15,20 +15,18 @@ $pengguna_list = $penggunaController->pengguna_list();
     <table class="table table-bordered" style="margin-top:10px">
       <?php if ($pengguna_list != null) : ?>
         <thead>
-          <td></td>
-          <td>No</td>
-          <td>Nama Pengguna</td>
-          <td>Nama Depan</td>
-          <td>Nama Belakang</td>
-          <td>No HP</td>
-          <td>Alamat</td>
-          <td></td>
+          <th>No</th>
+          <th>Nama Pengguna</th>
+          <th>Nama Depan</th>
+          <th>Nama Belakang</th>
+          <th>No HP</th>
+          <th>Alamat</th>
+          <th></th>
         </thead>
 
         <?php $no = 1;
         foreach ($pengguna_list as  $pengguna) : ?>
           <tr>
-            <td><input type="checkbox" value="<?php echo $pengguna['id_pengguna'] ?>" name="pengguna[]" onclick="checkboxes()"></td>
             <td><?php echo $no;
                 $no++ ?></td>
             <td style="width:200px"><?php echo $pengguna['nama_pengguna'] ?></td>
