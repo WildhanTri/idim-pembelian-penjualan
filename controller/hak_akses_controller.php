@@ -7,35 +7,6 @@ if(!isset($_SESSION)) {
 require_once "controller/base_controller.php";
 
 class HakAksesController {
-    private $id_akses;
-    private $nama_akses;
-    private $keterangan;
-
-    function set_id_akses($id_akses) {
-        $this->id_akses = $id_akses;
-    }
-
-    function set_nama_akses($nama_akses) {
-        $this->nama_akses = $nama_akses;
-    }
-
-    function set_keterangan($keterangan) {
-        $this->keterangan = $keterangan;
-    }
-
-    function get_id_akses() {
-        return $this->id_akses;
-    }
-
-    function get_nama_akses() {
-        return $this->nama_akses;
-    }
-
-    function get_keterangan() {
-        return $this->keterangan;
-    }
-
-
     function callasset(){
         $baseController = new BaseController();
         $baseController->callasset();
@@ -78,8 +49,8 @@ class HakAksesController {
         
         $model = new model;
         
-        $nama_akses = $data['nama_akses'];
-        $keterangan = $data['keterangan'];
+        $nama_akses = $data->get_nama_akses();
+        $keterangan = $data->get_keterangan();
         
         $model->insert("hak_akses", "null, '$nama_akses', '$keterangan'");
     }

@@ -8,15 +8,16 @@ require "controller/supplier_controller.php";
 require "controller/customer_controller.php";
 
 require 'class/barang.php';
+require 'class/hak_akses.php';
 
 // HAK AKSES
 if(isset($_POST['hak-akses-add-submit'])){
     $hakAksesController = new HakAksesController;
-    $data = array(
-            'nama_akses' => $_POST['nama_akses'],
-            'keterangan' => $_POST['keterangan'],
-    );
-    
+
+    $data = new HakAkses();
+    $data->set_nama_akses($_POST['nama_akses']);
+    $data->set_keterangan($_POST['keterangan']);
+
     $hakAksesController->hak_akses_add_submit($data);
     
     echo "<script>alert('Tambah Hak Akses Berhasil'); location.href='admin.php?page=hak-akses&&subpage=hak-akses-list'</script>";
