@@ -65,7 +65,7 @@ class PenjualanController {
         $this->callmodel();
         $model = new model;
         
-        $penjualan_list = $model->select2Table("penjualan", "customer", "penjualan.id_customer = customer.id_customer");
+        $penjualan_list = $model->select3Table("penjualan", "customer", "barang", "penjualan.id_customer = customer.id_customer", "barang.id_barang = penjualan.id_barang");
         return $penjualan_list;
     }
     

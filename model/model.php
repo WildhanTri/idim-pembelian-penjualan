@@ -25,6 +25,7 @@ class model {
     function select2Table($table, $table2, $on){
         require "koneksi.php";
         $data = mysqli_query($connect, "SELECT * FROM $table INNER JOIN $table2 ON $on");
+        var_dump("SELECT * FROM $table INNER JOIN $table2 ON $on");
         $dataarray = array();
 
             while($row = mysqli_fetch_assoc($data)){

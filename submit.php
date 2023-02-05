@@ -7,6 +7,8 @@ require "controller/penjualan_controller.php";
 require "controller/supplier_controller.php";
 require "controller/customer_controller.php";
 
+require 'class/barang.php';
+
 // HAK AKSES
 if(isset($_POST['hak-akses-add-submit'])){
     $hakAksesController = new HakAksesController;
@@ -100,11 +102,11 @@ if(isset($_GET['pengguna-delete'])){
 // BARANG
 if(isset($_POST['barang-add-submit'])){
     $barangController = new BarangController;
-    $data = array(
-            'nama_barang' => $_POST['nama_barang'],
-            'keterangan' => $_POST['keterangan'],
-            'satuan' => $_POST['satuan']
-    );
+
+    $data = new Barang();
+    $data->set_nama_barang($_POST['nama_barang']);
+    $data->set_keterangan($_POST['keterangan']);
+    $data->set_satuan($_POST['satuan']);
     
     $barangController->barang_add_submit($data);
     

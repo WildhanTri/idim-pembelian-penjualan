@@ -16,16 +16,59 @@ class DashboardController
     function get_dasboard()
     {
         require "koneksi.php";
-        $dashboard = mysqli_query($connect, "Select barang.nama_barang, 
-        (SUM(penjualan.jumlah_penjualan * penjualan.harga_jual) - SUM(pembelian.jumlah_pembelian * pembelian.harga_beli)) AS keuntungan, 
-        (SUM(pembelian.jumlah_pembelian) - SUM(penjualan.jumlah_penjualan)) AS stok,
-        (SUM(pembelian.jumlah_pembelian)) AS jumlah_pembelian,
-        (SUM(penjualan.jumlah_penjualan)) AS jumlah_penjualan
-        FROM 
-        barang 
-        JOIN pembelian ON barang.id_barang= pembelian.id_barang 
-        JOIN penjualan ON pembelian.id_barang = penjualan.id_barang 
-        GROUP BY barang.id_barang;");
+        $dashboard = mysqli_query($connect, "SELECT
+        b.nama_barang,
+        penj.omset - pemb.cost AS keuntungan,
+        pemb.jumlah_pembelian - penj.jumlah_penjualan AS stok,
+        pemb.jumlah_pembelian,
+        penj.jumlah_penjualan 
+    FROM
+        barang b
+        LEFT JOIN (
+        SELECT
+            a.id_barang,
+            a.nama_barang,
+            SUM( a.jumlah_pembelian ) AS jumlah_pembelian,
+            SUM( a.cost ) AS cost 
+        FROM
+            (
+            SELECT
+                b.id_barang,
+                b.nama_barang,
+                SUM( pemb.jumlah_pembelian ) AS jumlah_pembelian,
+                SUM( pemb.jumlah_pembelian ) * SUM( pemb.harga_beli ) AS cost 
+            FROM
+                pembelian pemb
+                INNER JOIN barang b ON b.id_barang = pemb.id_barang 
+            GROUP BY
+                b.id_barang 
+            ) a 
+        GROUP BY
+            id_barang 
+        ) pemb ON b.id_barang = pemb.id_barang
+        LEFT JOIN (
+        SELECT
+            a.id_barang,
+            a.nama_barang,
+            SUM( a.jumlah_penjualan ) AS jumlah_penjualan,
+            SUM( a.omset ) AS omset 
+        FROM
+            (
+            SELECT
+                b.id_barang,
+                b.nama_barang,
+                penj.jumlah_penjualan AS jumlah_penjualan,
+                penj.jumlah_penjualan * penj.harga_jual AS omset 
+            FROM
+                penjualan penj
+                INNER JOIN barang b ON b.id_barang = penj.id_barang 
+            ) a 
+        GROUP BY
+            id_barang 
+        ) penj ON b.id_barang = penj.id_barang 
+    GROUP BY
+        b.id_barang;
+    ;");
         return $dashboard;
     }
 }

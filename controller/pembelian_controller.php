@@ -65,7 +65,7 @@ class PembelianController {
         $this->callmodel();
         $model = new model;
         
-        $penjualan_list = $model->select2Table("pembelian", "supplier", "pembelian.id_supplier = supplier.id_supplier");
+        $penjualan_list = $model->select3Table("pembelian", "supplier", "barang", "pembelian.id_supplier = supplier.id_supplier", "barang.id_barang = pembelian.id_barang");
         return $penjualan_list;
     }
     

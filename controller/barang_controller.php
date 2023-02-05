@@ -106,9 +106,9 @@ class BarangController {
         
         $model = new model;
         
-        $nama_barang = $data['nama_barang'];
-        $keterangan = $data['keterangan'];
-        $satuan = $data['satuan'];
+        $nama_barang = $data->get_nama_barang();
+        $keterangan = $data->get_keterangan();
+        $satuan = $data->get_satuan();
         
         $model->insert("barang", "null, '$nama_barang', '$keterangan', '$satuan', null");
     }
