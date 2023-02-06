@@ -171,13 +171,13 @@ if(isset($_POST['pembelian-edit-submit'])){
     $pembelianController = new PembelianController;
 
     $data = new Pembelian();
-    $data->set_id_pembelian($_POST['idset_id_pembelian']);
+    $data->set_id_pembelian($_POST['id_pembelian']);
     $data->set_jumlah_pembelian($_POST['jumlah_pembelian']);
     $data->set_harga_beli($_POST['harga_beli']);
     $data->set_id_barang($_POST['id_barang']);
     $data->set_id_supplier($_POST['id_supplier']);
     
-    $pembelianController->pembelian_edit($data);
+    $pembelianController->pembelian_edit_submit($data);
     
     echo "<script>alert('Edit Pembelian Berhasil');  location.href='admin.php?page=pembelian&&subpage=pembelian-list'</script>";
 }

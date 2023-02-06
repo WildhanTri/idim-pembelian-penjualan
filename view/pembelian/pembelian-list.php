@@ -17,6 +17,7 @@ $pembelian_list = $pembelianController->pembelian_list();
         <thead>
           <th>No</th>
           <th>Nama Supplier</th>
+          <th>Nama Barang</th>
           <th>Jumlah Pembelian</th>
           <th>Harga Beli</th>
           <th></th>
@@ -28,6 +29,7 @@ $pembelian_list = $pembelianController->pembelian_list();
             <td><?php echo $no;
                 $no++ ?></td>
             <td style="width:200px"><?php echo $pembelian['nama_supplier'] ?></td>
+            <td><?php echo $pembelian['nama_barang'] ?></td>
             <td><?php echo $pembelian['jumlah_pembelian'] ?></td>
             <td><?php echo $pembelian['harga_beli'] ?></td>
             <td><?php echo $pembelian['created_at'] ?></td>

@@ -35,16 +35,14 @@ class DashboardController
             SELECT
                 b.id_barang,
                 b.nama_barang,
-                SUM( pemb.jumlah_pembelian ) AS jumlah_pembelian,
-                SUM( pemb.jumlah_pembelian ) * SUM( pemb.harga_beli ) AS cost 
+                pemb.jumlah_pembelian AS jumlah_pembelian,
+                pemb.jumlah_pembelian * pemb.harga_beli AS cost 
             FROM
                 pembelian pemb
-                INNER JOIN barang b ON b.id_barang = pemb.id_barang 
-            GROUP BY
-                b.id_barang 
+                INNER JOIN barang b ON b.id_barang = pemb.id_barang
             ) a 
         GROUP BY
-            id_barang 
+            id_barang
         ) pemb ON b.id_barang = pemb.id_barang
         LEFT JOIN (
         SELECT

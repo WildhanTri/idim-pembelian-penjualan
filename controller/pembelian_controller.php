@@ -59,11 +59,11 @@ class PembelianController {
         
         $model = new model;
 
-        $id_pembelian = $data['id_pembelian'];
-        $jumlah_pembelian = $data['jumlah_pembelian'];
-        $harga_beli = $data['harga_beli'];
-        $id_barang = $data['id_barang'];
-        $id_supplier = $data['id_supplier'];
+        $id_pembelian = $data->get_id_pembelian();
+        $jumlah_pembelian = $data->get_jumlah_pembelian();
+        $harga_beli = $data->get_harga_beli();
+        $id_barang = $data->get_id_barang();
+        $id_supplier = $data->get_id_supplier();
         
         $model->updateWhere("pembelian", "jumlah_pembelian = '$jumlah_pembelian', harga_beli = '$harga_beli', id_barang = '$id_barang', id_supplier = '$id_supplier'", "id_pembelian = '$id_pembelian'");
     }
